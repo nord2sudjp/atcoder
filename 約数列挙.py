@@ -8,3 +8,16 @@ def make_divisors(n):
                 upper_divisors.append(n//i)
         i += 1
     return lower_divisors + upper_divisors[::-1]
+    
+    
+    
+def md(n):
+    ld,ud=[],[]
+    i=1
+    while i*i <= n:
+        if n%i==0:
+            ld.append(i)
+            if i!=n//i:
+                ud.append(n//i)
+        i+=1
+    return ld+ud[::-1]
