@@ -1,3 +1,6 @@
+from math import gcd
+A,B=map(int,input().split())
+
 def s(n):
     l=[]
     limit=int(n**0.5)+1
@@ -8,3 +11,5 @@ def s(n):
     if n>1:l.append(n)
     return(l)
         
+g=gcd(A,B)
+print(len(set(s(g)))+1)
