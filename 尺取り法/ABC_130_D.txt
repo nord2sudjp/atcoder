@@ -1,0 +1,15 @@
+f=lambda:map(int,input().split())
+N,K=f()
+*A,=f()
+        
+s=j=ans=0
+for i in range(N):
+    while j<N and s+A[j]<K:
+        s+=A[j]
+        j+=1
+    #print(A[a],i,K,t)
+    ans += j-i
+    s-=A[i]
+    #print(i,t)
+
+print(N*(N+1)//2-ans)
