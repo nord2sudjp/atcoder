@@ -24,3 +24,10 @@ N=10
 for i in range(N,0,-1):
     for j in range(i+i,N+1,i):
         print(i,j)
+        
+        
+#
+N=10
+a=[0]+list(range(1,N+1))
+for i in range(N,0,-1):
+    print(a[i+i::i])
