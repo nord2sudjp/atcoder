@@ -6,7 +6,7 @@ f=[[0]*W for _ in range(H)]
 
 def dfs(x,y):
   # Validation
-  if !(0<=x<H and 0<=y<W) : return
+  if not(0<=x<H and 0<=y<W) : return
 
   # ƒS[ƒ‹‚Å‚ ‚é‚©‚ðŠm”F‚·‚é
   if G[x][y] == 'g': # ƒS[ƒ‹‚Ì‚½‚ß‚Ìˆ—
