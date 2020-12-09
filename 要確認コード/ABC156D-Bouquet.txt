@@ -1,0 +1,63 @@
+# POW-1, 正しくうごかない
+M=10**9+7
+
+def f_f(n,M):
+    if n==1:return 2
+    x=f(n/2,M)
+    x*=x
+    if (n%2==1):x*=2
+    print(n,x)
+    return x%M
+
+
+# POW-2, 正しく動く
+def f_t(n,M):
+    if n==0:return 1
+    elif n%2==0:
+        x=f(n/2,M)
+        x*=x
+        return x%M
+    else:
+        x=f((n-1)/2,M)
+        x*=x*2
+        return x%M
+        
+        
+def comb_f(n,r,mod):
+    x=y=1
+    for i in range(r):
+        x=(x*(n-i))%mod
+        y=(y*(i+1))%mod
+    return (x/y)%mod
+    
+N,A,B=map(int,input().split())
+M=10**9+7
+
+print(f(N,M)-1-comb(N,A,M)-comb(N,B,M))
+
+
+# 正しく動いたコード
+def comb(n,a,mod):
+ x=y=1
+ for i in range(1, a+1):
+   x = x * (n-i+1) % mod
+   y = (y * i) % mod
+ da = ((x % mod) * (pow(y, mod-2, mod) % mod)) % mod
+ return da
+
+def f(n,M):
+    if n==0:return 1
+    elif n%2==0:
+        x=f(n/2,M)
+        x*=x
+        return x%M
+    else:
+        x=f((n-1)/2,M)
+        x*=x*2
+        return x%M
+
+N,A,B=map(int,input().split())
+M=10**9+7
+
+ans=pow(2,N,M)-1-comb(N,A,M)-comb(N,B,M) 
+print(ans%M) # このMを忘れると<0になる。
