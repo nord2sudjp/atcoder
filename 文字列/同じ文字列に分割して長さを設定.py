@@ -1,3 +1,24 @@
+# 
+def f(S):
+    l=len(S)
+    b=[0]*l
+    done=[0]*l
+    i=0
+    for i in range(l):
+        if done[i]:continue # for‚Íi‚ğ•ÏX‚Å‚«‚È‚¢
+        target=S[i]
+        x=0
+        while i+x<l:
+            if S[i]!=S[i+x]:break
+            x+=1
+        print(i,S[i],x)
+        for j in range(i,i+x):
+            b[j]=x
+            done[j]=1
+    return ''.join(map(str,b))
+f("aabbccccdddee")
+
+# ”Ô•º–@
 def f(S):
     S+='$'
     L=len(S)
