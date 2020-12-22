@@ -1,4 +1,4 @@
-# 
+# atcoderのきれいなソース
 def f(S):
     l=len(S)
     b=[0]*l
@@ -17,6 +17,31 @@ def f(S):
             done[j]=1
     return ''.join(map(str,b))
 f("aabbccccdddee")
+
+
+# rleを修正
+def rle(s):
+    b=[0]*len(s)
+    tmp, count, ans = s[0], 1, ""
+    p=0
+    for i in range(1,len(s)):
+        if tmp == s[i]:
+            count += 1
+        else:
+            #ans += tmp+str(count)
+            for j in range(p,p+count):
+                b[j]=count
+            p=i
+            tmp = s[i]
+            count = 1
+    #ans += tmp+str(count)
+    for j in range(p,p+count):
+        b[j]=count
+    
+    return b
+
+rle("aaabbccceeddd")
+
 
 # 番兵法
 def f(S):
