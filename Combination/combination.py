@@ -1,5 +1,6 @@
-# 
-https://qiita.com/derodero24/items/91b6468e66923a87f39f
+# https://qiita.com/derodero24/items/91b6468e66923a87f39f
+# nCr‚ğ‹‚ß‚é
+# mod‚ğ’Ç‰Á‚·‚é‚Æ‚¨‚©‚µ‚­‚È‚é
 
 from operator import mul
 from functools import reduce
@@ -12,5 +13,3 @@ def cmb(n,r):
     return over // under
 
 a = cmb(M, N)
-
-

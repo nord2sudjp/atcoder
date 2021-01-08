@@ -1,7 +1,8 @@
 # https://atcoder.jp/contests/abc145/submissions/10775904
 def comb(n,r,mod):
-    # n+r‚©‚çr’Ê‚è‚ğ‘I‘ğ‚·‚é
+    # n‚©‚çr’Ê‚è‚ğ‘I‘ğ‚·‚é
     # mod‚Í‘f”‚Å‚ ‚é‚±‚Æ
+    if n<r:return 0
     k=min(r,n-r)
     C=1
     for i in range(1,k+1):
