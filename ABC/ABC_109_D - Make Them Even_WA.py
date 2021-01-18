@@ -1,8 +1,3 @@
-H=2
-W=3
-A=[[1,2,3],[0,1,1]]
-
-
 from collections import deque
 
 H,W=map(int,input().split())
@@ -12,11 +7,11 @@ r=[(1,0),(-1,0),(0,1),(0,-1)]
 flg=[[0]*W for _ in range(H)]
 
 idou_m=[]
+d=deque()
 
 def bfs(si,sj):
     flg[si][sj]=1
 
-    d=deque()
     d.append((si,sj))
 
     while d:
@@ -29,7 +24,7 @@ def bfs(si,sj):
             d.append((ni,nj))
             continue 
         else:
-            return((ni,nj))
+            return((ni,nj)) # c‚Á‚Ä‚¢‚½d‚Í‚«‚¦‚Ä‚µ‚Ü‚¤B
     return ((-1,-1))
 
 def idou(a,b):
