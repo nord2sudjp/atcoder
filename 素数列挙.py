@@ -1,3 +1,4 @@
+# https://qiita.com/snow67675476/items/e87ddb9285e27ea555f8
 def factorization(n):
     arr = []
     temp = n
@@ -19,25 +20,19 @@ def factorization(n):
 
 factorization(24)
 
-def improve(limit):
-    n = 0
-    for k in range(2, limit+1):
-        factor = 0
-        
-        # 2ˆÈŠO‚Ì‹ô”‚Í‘f”‚Å‚Í‚È‚¢‚Ì‚Å–³‹‚·‚é
-        if k % 2 == 0 and k != 2:
-            continue
-        
-        # ŒJ‚è•Ô‚µ‚ÌãŒÀ‚ğ”¼•ª‚É‚·‚é
-        for divisor in range(2, k//2):
-            if k % divisor == 0:
-                factor += 1
-                
-        if factor == 0:
-            n += 1
-            
-    return n
-    
+
+# https://nagiss.hateblo.jp/entry/2019/07/01/185421
+def prime_decomposition(n):
+    i = 2
+    table = []
+    while i * i <= n:
+        while n % i == 0:
+            n //= i
+            table.append(i)
+        i += 1
+    if n > 1:
+        table.append(n)
+    return table
     
     
 def s(l):
