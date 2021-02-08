@@ -1,0 +1,38 @@
+# Ž©•ª‚Ì‰ñ“š
+
+N=4
+W=5
+WV=[[2,3],[1,2],[3,4],[2,2]]
+
+V=10
+MAX_V=V+10
+MAX_N=N+10
+
+DP=[[0]*(MAX_V*MAX_N) for _ in range(N+10)]
+
+for i in range(N):
+    w,v=WV[i]
+    for j in range(MAX_V*MAX_N):
+    #for j in range(V+1):
+    
+        c=[]
+        if j==v:
+            c.append(w)
+        if DP[i][j]!=0:
+            c.append(DP[i][j])
+        if DP[i][j-v]!=0:
+            c.append(DP[i][j-v]+w)
+        if len(c)!=0:
+            DP[i+1][j]=min(c)
+
+def fmtdp(DP):
+    for dp in DP:
+        print(''.join(map(str,dp)))
+        
+        
+ans=0
+for t in range(MAX_V*MAX_N):
+    if DP[N][t]<=W: 
+        # print(DP[N][t]<=W,DP[N][t],W,t)
+        ans=t
+print(ans)
