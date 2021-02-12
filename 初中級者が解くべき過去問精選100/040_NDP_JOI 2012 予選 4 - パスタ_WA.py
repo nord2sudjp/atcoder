@@ -8,7 +8,16 @@ MAX_N=N+10
 
 DP=[[0]*(3) for _ in range(N+1)]
 
-DP[1][0]=1
+b=AB.get(1,-1)
+if b==-1:
+  DP[1][0]=1
+  DP[1][1]=1
+  DP[1][2]=1
+else:
+  DP[1][b-1]=1
+  
+#DP[1][0]=1
+# 初期値の設定がおかしい。これはサンプル１にしか合わない
 
 for i in range(2,N+1):
     t_all=sum(DP[i-1])
