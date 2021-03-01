@@ -1,2 +1,1 @@
-f1=lambda c: ord(c) - ord('a')
-f2=lambda c: chr(c+97)
+https://nagiss.hateblo.jp/entry/2019/07/01/185421

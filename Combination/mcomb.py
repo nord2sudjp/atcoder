@@ -9,6 +9,8 @@ def comb(n,r,mod):
         C=(C*(n+1-i)*pow(i,mod-2,mod))%mod
     return C
 
+print(com(n+m,n,mod))
+
 
 
 # 
