@@ -1,3 +1,5 @@
+# https://qiita.com/drken/items/a5e6fe22863b7992efdb
+
 N,A=map(int,input().split()) # 1<=N<=100,1<=A<=10000,  
 *L,=map(int,input().split()) # 1<=L[i]<=1000, len(L)=N
 
