@@ -1,45 +1,36 @@
-# https://qiita.com/snow67675476/items/e87ddb9285e27ea555f8
-def factorization(n):
-    arr = []
-    temp = n
-    for i in range(2, int(-(-n**0.5//1))+1):
-        if temp%i==0:
-            cnt=0
-            while temp%i==0:
-                cnt+=1
-                temp //= i
-            arr.append([i, cnt])
-
-    if temp!=1:
-        arr.append([temp, 1])
-
-    if arr==[]:
-        arr.append([n, 1])
-
-    return arr
-
-factorization(24)
-
-
-# https://nagiss.hateblo.jp/entry/2019/07/01/185421
-def prime_decomposition(n):
-    i = 2
-    table = []
-    while i * i <= n:
-        while n % i == 0:
-            n //= i
-            table.append(i)
-        i += 1
-    if n > 1:
-        table.append(n)
-    return table
+# nまでの自然数が素数かどうかを表すリストを返す
+def makePrimeChecker(n):
+    isPrime = [True] * (n + 1)
+    isPrime[0] = False
+    isPrime[1] = False
+    for i in range(2, int(n ** 0.5) + 1):
+        if isPrime[i]:
+            for j in range(i * i, n + 1, i):
+                isPrime[j] = False
+    return isPrime
     
-def s(n):
-    l=[]
-    limit=int(n**0.5)+1
-    for i in range(2,limit+1):
-        while n%i==0:
-            l.append(i)
-            n=n//i
-    if n>1:l.append(n)
-    return(l)
+    
+# AOJ vol00:0009
+# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0009
+def makePrimeChecker(n):
+    isPrime = [True] * (n + 1)
+    isPrime[0] = False
+    isPrime[1] = False
+    for i in range(2, int(n ** 0.5) + 1):
+        if isPrime[i]:
+            for j in range(i * i, n + 1, i):
+                isPrime[j] = False
+    return isPrime
+
+MAX=1000000
+x=makePrimeChecker(MAX)
+
+y=[0]*MAX
+for i in range(1,MAX):
+    y[i]=y[i-1]+x[i]
+
+#print(y[0:10])
+
+import sys
+for l in sys.stdin.readlines():
+    print(y[int(l)])
