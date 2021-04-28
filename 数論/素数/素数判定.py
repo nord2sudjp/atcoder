@@ -1,10 +1,11 @@
 # https://szarny.hatenablog.com/entry/2017/09/21/232855#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89-4
 import math
 def s(k):
-    f=0
     if k%2==0 and k!=2:return False
-    limit=math.floor(math.sqrt(k))+1
-    for d in range(2, l):
+    if k == 1: return False
+
+    limit=int(math.floor(math.sqrt(k))+1) # python2‚Å‚ÍfloatƒGƒ‰[
+    for d in range(2, limit):
         if k%d == 0:return False
     return True
 
