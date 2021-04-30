@@ -35,3 +35,11 @@ while right-left>1:
         left=mid
     #print(left,right)
 print(right)
+
+## OK
+Time: 1 2 3 4 5
+撃ち落とすタイミング: 1 3 4 5 9
+
+## No
+Time: 1 2 3 4 5
+撃ち落とすタイミング: 1 1 2 3 4

@@ -1,3 +1,8 @@
+# N=N円支払う
+# M=コインの種類
+# P=コインの値
+# DP[i][j] = i枚目のコインを利用したときに[j]円払うために必要な枚数
+
 N,M=map(int,input().split())
 *P,=list(map(int, input().split())) 
 
