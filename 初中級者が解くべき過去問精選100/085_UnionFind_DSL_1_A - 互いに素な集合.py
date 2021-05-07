@@ -2,10 +2,7 @@ import sys
 sys.setrecursionlimit(10*18)
 
 
-N,Q=map(int,input().split())
 
-par=[i for i in range(N+1)]
-size=[1]*N
 
 def find(x):
     if par[x] == x: # e‚ª©•ª©g‚Ì‚Íroot
@@ -40,6 +37,11 @@ def unite(x,y):
     else:
         par[x] = y  # tree x‚ª¬‚³‚¢‚Ì‚ÅAx‚Íy‚É‹zû
         size[y] += sx    
+
+N,Q=map(int,input().split())
+
+par=[i for i in range(N+1)]
+size=[1]*N
 
 for _ in range(Q):
     c,x,y=map(int,input().split())
