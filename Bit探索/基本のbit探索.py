@@ -1,3 +1,4 @@
+# 説明バージョン
 N=3
 # 3桁の2進数についてすべての組み合わせを調べる
 
@@ -14,3 +15,12 @@ for i in range(2**N):
             # 0b111 & 0b001とすると、0b001となる。
             # これにより7の1桁目だけ取得できる。
             print(i,'{:05b}'.format(i),j,'ON') # 出力
+            
+            
+# デバッグバージョン
+for i in range(2**n): 
+    t=[]
+    for j in range(n): 
+        if (i>>j&1):
+            t.append(j)
+    print(i,'{:05b}'.format(i),' '.join(map(str,t))) # 出力
