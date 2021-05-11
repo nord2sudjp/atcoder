@@ -4,13 +4,9 @@ import sys
 sys.setrecursionlimit(10*18)
 
 
-N,M=map(int,input().split())
-
-VE=[]
-for _ in range(M):
-    a,b=map(int,input().split())
-    # a-=1;b-=1
-    VE.append((a,b))
+N=7
+M=7
+VE=[(1, 3), (2, 7), (3, 4), (4, 5), (4, 6), (5, 6), (6, 7)]
 
 
 def find(x):
@@ -42,14 +38,17 @@ def unite(x,y):
 
 cnt=0
 for i in range(M):
+    # 順番に辺を取り除いていく
     t=[VE[j] for j in range(M) if i!=j]
     
-    par=[i for i in range(N+1)]
-    size=[1]*(N+1)
+    par=[i for i in range(N+1)] # parentsは自分自身
+    size=[1]*(N+1) # size=1
 
-    for x,y in t:
+    # Unite
+    for x,y in t: 
         unite(x,y)
     
+    # 1とそれ以外で分割しているかを確認
     isisolate=False
     for t in range(2,N+1):
         if same(1,t)==False:
