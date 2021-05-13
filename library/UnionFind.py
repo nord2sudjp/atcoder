@@ -1,4 +1,7 @@
+# C - Connect Cities
+# https://atcoder.jp/contests/abl/submissions/21431537
 #086_UnionFind_ABC_075_C - Bridge
+# par‚Íí‚Éroot‚ğ‚Á‚Ä‚¢‚é‚Æ‚ÍŒÀ‚ç‚È‚¢ refreshroot()‚ğ‚©‚¯‚é‚±‚Æ
 
 import sys
 sys.setrecursionlimit(10*18)
@@ -35,6 +38,18 @@ def unite(x,y):
     else:
         par[x] = y
         size[y] += sx    
+
+def groups():
+    g=[]
+    for i in range(1,N+1):
+        if par[i]==i:
+            g.append(i)
+    return g
+
+def refreshroot():
+  for i in range(1,N+1):
+      find(i)
+
 
 cnt=0
 for i in range(M):
