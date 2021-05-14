@@ -1,3 +1,14 @@
+# 
+from itertools import groupby
+s='aabbccdeeeff'
+
+ans=groupby(s)
+
+l=[''.join(g) for k, g in groupby(s)] 
+print(l)
+
+
+# ‚±‚ê‚ÍŽg‚í‚È‚¢
 def divstr(S):
     S=''.join([S,'$'])
 
