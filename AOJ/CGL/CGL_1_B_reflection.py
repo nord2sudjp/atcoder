@@ -1,3 +1,5 @@
+# CGL_1_A
+
 from decimal import *
 getcontext().prec = 15
   
@@ -26,22 +28,11 @@ def project(p1,p2,po):
     base=list(map(lambda x : Decimal(r)*Decimal(x), base))
     
     return [i+j for i,j in zip(p1,base)]
-    
-def is_parallel(x1, y1, x2, y2, x3, y3, x4, y4):
-    #https://pcl.solima.net/pyblog/archives/779
 
-    d1x = x2 - x1
-    d1y = y2 - y1
-    d2x = x4 - x3
-    d2y = y4 - y3
+x1,y1,x2,y2=map(int,input().split())
+Q=int(input())
 
-    return cross([d1x,d1y],[d2x,d2y])==0
-    # ベクトルa,bの外積の大きさ=0
-
-def is_orthogonal(x1, y1, x2, y2, x3, y3, x4, y4):
-    d1x = x2 - x1
-    d1y = y2 - y1
-    d2x = x4 - x3
-    d2y = y4 - y3
-    
-    return dot([d1x,d1y],[d2x,d2y])==0
+for _ in range(Q):
+    x3,y3=map(int,input().split())
+    ans=reflect([x1,y1],[x2,y2],[x3,y3])
+    print('{:.13f} {:.13f}'.format(ans[0],ans[1]))
