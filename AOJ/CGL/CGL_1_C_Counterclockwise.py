@@ -46,6 +46,7 @@ def is_orthogonal(x1, y1, x2, y2, x3, y3, x4, y4):
     
     return dot([d1x,d1y],[d2x,d2y])==0
 
+
 def clockwise(v1,v2):
     text={-1:"CLOCKWISE",0:"ON_SEGMENT",1:"COUNTER_CLOCKWISE",2:"ONLINE_BACK",-2:"ONLINE_FRONT"}
     if cross(v1,v2)>0: return 1 # Counter clockwise
@@ -53,3 +54,16 @@ def clockwise(v1,v2):
     if dot(v1,v2)<0:return 2 #online back
     if norm(v1)<norm(v2): return -2 #online front
     return 0 # on segment
+
+x0,y0,x1,y1=map(int,input().split())
+Q=int(input())
+
+text={-1:"CLOCKWISE",0:"ON_SEGMENT",1:"COUNTER_CLOCKWISE",2:"ONLINE_BACK",-2:"ONLINE_FRONT"}
+
+for _ in range(Q):
+    x2,y2=map(int,input().split())
+    v1=(x0-x1,y0-y1)
+    v2=(x0-x2,y0-y2)
+    print(text[clockwise(v1,v2)])
+    
+    
