@@ -46,10 +46,37 @@ def is_orthogonal(x1, y1, x2, y2, x3, y3, x4, y4):
     
     return dot([d1x,d1y],[d2x,d2y])==0
 
-def clockwise(v1,v2):
-    text={-1:"CLOCKWISE",0:"ON_SEGMENT",1:"COUNTER_CLOCKWISE",2:"ONLINE_BACK",-2:"ONLINE_FRONT"}
+
+def ccw(v1,v2):
+    text={0:"ON_SEGMENT",1:"COUNTER_CLOCKWISE",-1:"CLOCKWISE",2:"ONLINE_BACK",-2:"ONLINE_FRONT"}
     if cross(v1,v2)>0: return 1 # Counter clockwise
     if cross(v1,v2)<0: return -1 # clockwise
     if dot(v1,v2)<0:return 2 #online back
     if norm(v1)<norm(v2): return -2 #online front
     return 0 # on segment
+
+def ccw_p(po,p1,p2):
+    v1=(po[0]-p1[0],po[1]-p1[1])
+    v2=(po[0]-p2[0],po[1]-p2[1])
+    return ccw(v1,v2)
+
+def intersect_p(p1,p2,p3,p4):
+    return (ccw_p(p1,p2,p3) * ccw_p(p1,p2,p4) <= 0 and ccw_p(p3,p4,p1) * ccw_p(p3,p4,p2) <=0)
+
+def intersect(s1,s2):
+    return intersect(s1[0], s1[1], s2[0], s2[1])
+
+def get_cross_point(s1,s2):
+    
+    s2_p1=s2[0]
+    s2_p2=s2[1]
+    
+    
+    
+    base=(s2_p2[0]-s2_p1[0],s2_p2[1]-s2_p1[1])
+    d1=abs(cross(base, (s1[0][0]-s2_p1[0],s1[0][1]-s2_p1[1]) ))
+    d2=abs(cross(base, (s1[1][0]-s2_p1[0],s1[1][1]-s2_p1[1]) ))
+    t=Decimal(d1)/(Decimal(d1)+Decimal(d2))
+    
+    h=map(lambda x : x*t, [p2-p1 for p2,p1 in zip(s1[1],s1[0])])
+    return [p1+p2 for p2,p1 in zip(s1[0],h)] 
