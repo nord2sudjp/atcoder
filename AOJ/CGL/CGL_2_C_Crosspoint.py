@@ -1,4 +1,4 @@
-# CGL-CGL_2_D Line
+# CGL-CGL_2_C Cross Point
 
 
 # 2_B
@@ -14,8 +14,6 @@ def cross(v1,v2):
 def norm(v):
     return Decimal(v[0])**Decimal(2)+Decimal(v[1])**Decimal(2)
 
-def _abs(v):
-    return Decimal(norm(v))**Decimal(0.5)
 
 def reflect(p1,p2,po):
     pr=project(p1,p2,po)
@@ -64,13 +62,13 @@ def ccw(v1,v2):
 def ccw_p(po,p1,p2):
     v1=(po[0]-p1[0],po[1]-p1[1])
     v2=(po[0]-p2[0],po[1]-p2[1])
-    return ccw(v1,v2)
+    return clockwise(v1,v2)
 
-def intersect_p(p1,p2,p3,p4):
-    return (ccw_p(p1,p2,p3) * ccw_p(p1,p2,p4) <= 0 and ccw_p(p3,p4,p1) * ccw_p(p3,p4,p2) <=0)
+def inersect_p(p1,p2,p3,p4):
+    rerun (ccw(p1,p2,p3) * ccw(p1,p2,p4) <= 0 and ccw(p3,p4,p1) * ccw(p3,p4,p2) <=0)
 
 def intersect(s1,s2):
-    return intersect_p(s1[0], s1[1], s2[0], s2[1])
+    return intersect(s1[0], s1[1], s2[0], s2[1])
 
 def get_cross_point(s1,s2):
     
@@ -87,32 +85,8 @@ def get_cross_point(s1,s2):
     h=map(lambda x : x*t, [p2-p1 for p2,p1 in zip(s1[1],s1[0])])
     return [p1+p2 for p2,p1 in zip(s1[0],h)] 
 
-def get_distanceLP(l,p):
-    v1=[p2-p1 for p2,p1 in zip(l[1],l[0])]
-    v2=[p2-p1 for p2,p1 in zip(p,l[0])]
-    t1=cross(v1,v2)
-    
-    t2=_abs([p2-p1 for p2,p1 in zip(l[1],l[0])])
-    return abs(Decimal(t1)/Decimal(t2))
+Q=int(input())
 
-
-def get_distanceSP(s,p):
-    v1=[p2-p1 for p2,p1 in zip(s[1],s[0])]
-    v2=[p2-p1 for p2,p1 in zip(p,s[0])]
-    if dot(v1,v2) < 0: return _abs(v2)
-        
-    v1=[p2-p1 for p2,p1 in zip(s[0],s[1])]
-    v2=[p2-p1 for p2,p1 in zip(p,s[1])]
-    if dot(v1,v2) < 0: return _abs(v2)
-    return get_distanceLP(s,p)
-
-def get_distance(s1,s2):
-        if intersect(s1,s2):return 0
-        ans=min( get_distanceSP(s1,s2[0]),get_distanceSP(s1,s2[1]),get_distanceSP(s2,s1[0]),get_distanceSP(s2,s1[1]))
-        return ans
-
-
-# CGL_3_A
-# https://tjkendev.github.io/procon-library/python/geometry/polygon_area.html
-def polygon_area(N, P):
-    return abs(sum(P[i][0]*P[i-1][1] - P[i][1]*P[i-1][0] for i in range(N))) / 2.
+for _ in range(Q):
+    p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y=map(int,input().split())
+    print(get_cross_pointintersect((p1x,p1y),(p2x,p2y),(p3x,p3y),(p4x,p4y))

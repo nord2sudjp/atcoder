@@ -111,8 +111,8 @@ def get_distance(s1,s2):
         ans=min( get_distanceSP(s1,s2[0]),get_distanceSP(s1,s2[1]),get_distanceSP(s2,s1[0]),get_distanceSP(s2,s1[1]))
         return ans
 
+Q=int(input())
 
-# CGL_3_A
-# https://tjkendev.github.io/procon-library/python/geometry/polygon_area.html
-def polygon_area(N, P):
-    return abs(sum(P[i][0]*P[i-1][1] - P[i][1]*P[i-1][0] for i in range(N))) / 2.
+for _ in range(Q):
+    p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y=map(int,input().split())
+    print('{:.13f}'.format(get_distance([(p1x,p1y),(p2x,p2y)],[(p3x,p3y),(p4x,p4y)])))
