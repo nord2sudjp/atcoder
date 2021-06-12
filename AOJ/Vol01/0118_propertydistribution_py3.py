@@ -1,3 +1,6 @@
+# “ú–{Œê‚ÌƒRƒƒ“ƒg‚ğ‚·‚×‚Äíœ‚·‚é‚±‚Æ
+# DFS‚Å‚Ísetrecursionlimit(1000000)
+
 # 0118 Property Distribution
 import sys
 sys.setrecursionlimit(1000000)

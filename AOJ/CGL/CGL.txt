@@ -20,6 +20,10 @@ def norm(v):
 def _abs(v):
     return Decimal(norm(v))**Decimal(0.5)
 
+def _absP(p1,p2):
+    v=[i-j for i,j in zip(p1,p2)]
+    return _abs(v)    
+
 def reflect(p1,p2,po):
     pr=project(p1,p2,po)
     v=[i-j for i,j in zip(pr,po)]
