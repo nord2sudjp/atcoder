@@ -1,0 +1,31 @@
+#CGL
+CGLフォルダ
+Vol0,0010,Circumscribed Circle of a Triangle
+
+#DFS
+
+#誤差に気を付ける問題
+Vol0,0004,Simultaneous Equation
+
+# 累積和
+Vol0,0022,Maximum Sum Sequence
+
+# DFS
+Vol1,0118,Property Distribution
+
+
+# 構文
+Vol1,0119,Smart Calculator
+
+# ダイクストラ
+Vol1,0155,Spider Jin
+
+# DP
+Vol1,0169,Kannnoudou
+
+
+# BFS
+Vol1,0179,Misterious Worm
+
+# Mod
+Vol2,0270,Modular Query
