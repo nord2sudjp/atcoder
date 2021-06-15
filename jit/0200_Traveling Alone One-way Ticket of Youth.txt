@@ -1,0 +1,51 @@
+# GRL_1_C
+
+INF=10**9+7
+inf=10**9+7
+
+import numpy as np
+ 
+from numba import jit
+
+@jit("i8[:,:](i8,i8[:,:])",nopython=True) 
+def solve(MAXM,fare):
+    for k in range(MAXM):
+        for i in range(MAXM):
+            for j in range(MAXM):
+                if fare[i][j] > fare[i][k] + fare[k][j]:
+                    fare[i][j] = fare[i][k] + fare[k][j]
+
+#                 if time[i][j] > time[i][k] + time[k][j]:
+#                     time[i][j] = time[i][k] + time[k][j]
+    return(fare)
+
+def main():
+        N,M=map(int,input().split())
+        if N==0 and M==0:return
+        MAXM=107
+        fare=[[INF]*(MAXM) for _ in range(MAXM)]
+        time=[[INF]*(MAXM) for _ in range(MAXM)]
+
+        # Don't forget initialize 
+        for i in range(MAXM):
+            fare[i][i]=0
+            time[i][i]=0
+        
+        for i in range(N):
+            a,b,f,t=map(int,input().split())
+            fare[a][b]=f
+            fare[b][a]=f
+            time[a][b]=t
+            time[b][a]=t
+        fare=np.array(fare)
+        time=np.array(time)
+        fare=solve(MAXM,fare)
+        time=solve(MAXM,time)
+                    
+        Q=int(input())
+        for i in range(Q):
+            p,q,r=map(int,input().split())
+            print(fare[p][q] if r==0 else time[p][q])
+
+if __name__ == "__main__":
+    main()
