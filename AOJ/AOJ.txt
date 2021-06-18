@@ -1,3 +1,6 @@
+# GCD/LCM
+Vol3,0361,Wire
+
 #CGL
 CGLフォルダ
 Vol0,0010,Circumscribed Circle of a Triangle
@@ -32,3 +35,6 @@ Vol1,0179,Misterious Worm
 
 # Mod
 Vol2,0270,Modular Query
+
+# データ構造
+Vol3,0301,Bato Relay Game,Ring
