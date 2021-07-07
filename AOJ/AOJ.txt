@@ -38,3 +38,6 @@ Vol2,0270,Modular Query
 
 # データ構造
 Vol3,0301,Bato Relay Game,Ring
+
+# Rolling Hash
+Vol5,0528,Common Sub-String

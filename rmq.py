@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/sparse-table/
+# Sparce Table : 更新がない場合の高速な区間クエリ
 import math
 
 def prep(A):
@@ -18,7 +20,6 @@ def prep(A):
         j+=1
     return sparse
 
-
 def rmq(low,high,A,sparse):
     l=high-low
     k=int(math.log2(l))
@@ -26,11 +27,17 @@ def rmq(low,high,A,sparse):
 
 
 
-
-
-A = [7, 2, 3, 0, 5, 10, 3, 12, 18]
+A = [4,6,1,5,7,3]
 sparse=prep(A)
+print(sparse)
+print(rmq(3, 5, A,sparse))
 
-print(rmq(0, 4, A,sparse))
-print(rmq(4, 7,A,sparse))
-print(rmq(7, 8,A,sparse))
+
+# A = [7, 2, 3, 0, 5, 10, 3, 12, 18]
+# sparse=prep(A)
+
+# print(sparse)
+
+# print(rmq(0, 4, A,sparse))
+# print(rmq(4, 7,A,sparse))
+# print(rmq(7, 8,A,sparse))
