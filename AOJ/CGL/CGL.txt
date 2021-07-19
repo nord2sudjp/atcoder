@@ -2,6 +2,10 @@
 # http://niwatolli3.hatenablog.jp/entry/2017/04/23/161737
 
 
+
+def getDegree(y,x):
+	return (math.degrees(math.atan2(y, x)))
+
 def isTriangle(a,b,c):
     return a+b>c and b+c>a and c+a>b
 
