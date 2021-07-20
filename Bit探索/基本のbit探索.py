@@ -18,9 +18,11 @@ for i in range(2**N):
             
             
 # デバッグバージョン
-for i in range(2**n): 
+N=3
+for i in range(2**N): 
     t=[]
-    for j in range(n): 
+    for j in range(N): 
         if (i>>j&1):
             t.append(j)
-    print(i,'{:05b}'.format(i),' '.join(map(str,t))) # 出力
+    pattern='{:0'+str(N)+'b}'        
+    print(i,pattern.format(i),' '.join(map(str,t))) # 出力
