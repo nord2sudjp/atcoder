@@ -4,10 +4,17 @@ import sys
 from collections import deque
 sys.setrecursionlimit(1000000)
 
+G=[[] for _ in range(MAXN)]
+for i in range(N-1):
+  a, b = map(int, input().split())
+  G[a].append(b)
+  G[b].append(a)
 
-N=3
-MAXN=N+1
-G=[[], [2], [1, 3], [2]]
+# N=4
+# MAXN=N+1
+# G=[[],[2,3],[1,4],[1],[2]]
+
+   
 
 def bfs(N,i,G):
     dist=[-1]*N
