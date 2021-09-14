@@ -1,3 +1,5 @@
+# Kruskal method
+
 import sys
 sys.setrecursionlimit(10*18)
 
