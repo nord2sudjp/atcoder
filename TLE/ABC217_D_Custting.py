@@ -1,3 +1,5 @@
+# Array‚ð—˜—p
+
 import array
 import bisect
 L, Q = map(int, input().split())
